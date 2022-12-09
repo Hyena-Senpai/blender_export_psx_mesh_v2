@@ -33,7 +33,10 @@ Real-time 3D / 8bpp background / 4bpp background
 
 ## Planned
 
-  * Fix and improve all the things !
+  * Get this working on Blender 3.2/3.3 and update for 3.4 when needed. probably.
+  * idk clean this up or something, more worried about making it work rn.
+  
+  will add more to this in the future.
 
 # Install the plugin
 
