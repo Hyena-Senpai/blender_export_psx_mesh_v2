@@ -1,3 +1,5 @@
+## Currently doesn't work lol, i'll have to update it again for blender 3.4 most likely anyway so your best bet is to use the original for 2.79 for the time being.
+
 ![Pic or it didn't happen](https://wiki.arthus.net/assets/blender-psx.jpg)
 
 # Blender 3dcam PSX engine Level exporter
