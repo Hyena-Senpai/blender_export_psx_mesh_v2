@@ -126,7 +126,7 @@ class ExportMyFormat(bpy.types.Operator, ExportHelper):
             # Get a BMesh representation
             bm = bmesh.new()
             bm.from_mesh(me)
-            bmesh.ops.triangulate(bm, faces=bm.faces[:], quad_method=0, ngon_method=0)
+            bmesh.ops.triangulate(bm, faces=bm.faces[:])
             # Finish up, write the bmesh back to the mesh
             bm.to_mesh(me)
             bm.free()
@@ -816,8 +816,8 @@ class ExportMyFormat(bpy.types.Operator, ExportHelper):
             expFolder = os.getcwd()
         # Get texture folder, default to ./TEX
         textureFolder = os.path.join( expFolder, "TEX")
-        if self.exp_CustomTexFolder != "TEX":
-            textureFolder = os.path.join( expFolder, self.exp_CustomTexFolder)
+        if not os.path.exists(textureFolder):
+            os.mkdir(textureFolder)
         timFolder = os.path.join( expFolder, "TIM")
         # If the TIM folder doesn't exist, create it
         if not os.path.exists(timFolder):
@@ -1134,9 +1134,9 @@ class ExportMyFormat(bpy.types.Operator, ExportHelper):
                 )
     ## Horizon & Ambient color
         # Get world horizon colors
-        BGr = str( round( linearToRGB( bpy.data.worlds[0].horizon_color.r )  * 192 ) + 63 )
-        BGg = str( round( linearToRGB( bpy.data.worlds[0].horizon_color.g )  * 192) + 63 )
-        BGb = str( round( linearToRGB( bpy.data.worlds[0].horizon_color.b )  * 192 ) + 63 )
+        BGr = str( round( linearToRGB( bpy.data.worlds[0].color.r )  * 192 ) + 63 )
+        BGg = str( round( linearToRGB( bpy.data.worlds[0].color.g )  * 192) + 63 )
+        BGb = str( round( linearToRGB( bpy.data.worlds[0].color.b )  * 192 ) + 63 )
         f.write(
                 "CVECTOR " + fileName + "_BGc = { " + BGr + ", " + BGg + ", " + BGb + ", 0 };\n\n"
                 )
@@ -2193,10 +2193,10 @@ class ExportMyFormat(bpy.types.Operator, ExportHelper):
 def menu_func(self, context):
     self.layout.operator(ExportMyFormat.bl_idname, text="PSX Format(.c)");
 def register():
-    bpy.utils.register_module(__name__);
-    bpy.types.INFO_MT_file_export.append(menu_func);
+    bpy.utils.register_class(ExportMyFormat);
+    bpy.types.TOPBAR_MT_file_export.append(menu_func);
 def unregister():
-    bpy.utils.unregister_module(__name__);
-    bpy.types.INFO_MT_file_export.remove(menu_func);
+    bpy.utils.unregister_class(ExportMyFormat);
+    bpy.types.TOPBAR_MT_file_export.remove(menu_func);
 if __name__ == "__main__":
     register()

@@ -33,8 +33,9 @@ Real-time 3D / 8bpp background / 4bpp background
 
 ## Planned
 
-  * Get this working on Blender 3.2/3.3 and update for 3.4 when needed. probably.
+  * Get this working on Blender 3.4 and maybe 3.2/3.3
   * idk clean this up or something, more worried about making it work rn.
+  * merge the helper file and importer file.
   
   will add more to this in the future.
 

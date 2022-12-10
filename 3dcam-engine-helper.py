@@ -150,8 +150,8 @@ class customPropsPanel(bpy.types.Panel):
 def register():
     # register the panel class
     bpy.utils.register_class(customPropsPanel)
-    bpy.app.handlers.scene_update_post.clear()
-    bpy.app.handlers.scene_update_post.append(selection_callback)
+    bpy.app.handlers.depsgraph_update_post.clear()
+    bpy.app.handlers.depsgraph_update_post.append(selection_callback)
     # copy helper
     bpy.utils.register_class(copyCustomPropToSelection)
     bpy.types.VIEW3D_MT_object.append(menu_func)
