@@ -1,4 +1,4 @@
-## Currently doesn't work lol, i'll have to update it again for blender 3.4 most likely anyway so your best bet is to use the original for 2.79 for the time being.
+## Currently doesn't work lol, your best bet is to use the original for 2.79 for the time being.
 
 ![Pic or it didn't happen](https://wiki.arthus.net/assets/blender-psx.jpg)
 
@@ -33,24 +33,34 @@ Real-time 3D / 8bpp background / 4bpp background
 
 ## Planned
 
+  Priority:
   * Get this working on Blender 3.4 and maybe 3.2/3.3
-  * idk clean this up or something, more worried about making it work rn.
+  * Fix vertex colors and animations and whatever else broke from the transition.
+  * Get the Helper file working as well.
+  
+  New stuff:
+  * clean this up as much as i can.
   * merge the helper file and importer file.
+  * still figuring this part out.
+  
+  Eventually:
+  * add a proper UI and a seperate system for handling background, ambient lights, and fog.
+  * more stuff pending.
   
   will add more to this in the future.
 
 # Install the plugin
 
-**This plugin is not compatible with Blender > 2.79.**
+**This plugin is not compatible with Blender < 3.2.**
 
-1. Download and install Blender 2.79b.
+1. Download and install Blender 3.4.
 
-http://download.blender.org/release/Blender2.79/
+https://www.blender.org/download/
 
 2. Clone this repository in the [addons folder](https://docs.blender.org/manual/en/latest/advanced/blender_directory_layout.html) of blender 2.79 :
 
 ```bash
-git clone https://github.com/ABelliqueux/blender_io_export_psx_mesh.git
+git clone https://github.com/Hyena-Senpai/blender_export_psx_mesh_v2
 ```
 
 3. Dependencies 
@@ -124,6 +134,11 @@ See [the documentation](https://github.com/ABelliqueux/blender_io_export_psx_mes
 **The script only does the job of creating/updating the object's custom properties, so it is not mandatory to use it.**
 
 # Credits
+
+Built from Schnappy's 2.79 plugin https://github.com/ABelliqueux/blender_io_export_psx_mesh.git
+Referenced some code from Afire101's fork https://github.com/filippocastelli/blender_io_export_psx_mesh.git
+
+Special Thanks to the fast64 discord 
 
 Based on the [code](https://pastebin.com/suU9DigB) provided by TheDukeOfZill, 04-2014, on http://www.psxdev.net/forum/viewtopic.php?f=64&t=537#p4088  
 pngquant : [https://github.com/kornelski/pngquant](https://github.com/kornelski/pngquant)  
